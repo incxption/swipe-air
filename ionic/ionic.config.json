@@ -1,0 +1,7 @@
+{
+  "name": "SwipeAir",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
