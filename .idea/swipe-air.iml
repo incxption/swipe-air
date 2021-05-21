@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/desktop/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/desktop/tmp" />
+      <excludeFolder url="file://$MODULE_DIR$/ionic/www" />
+      <excludeFolder url="file://$MODULE_DIR$/ionic/android/.idea/libraries" />
+      <excludeFolder url="file://$MODULE_DIR$/ionic/android/.idea/modules" />
+      <excludeFolder url="file://$MODULE_DIR$/ionic/android/app/src/main/assets/public" />
+      <excludeFolder url="file://$MODULE_DIR$/ionic/android/app/build" />
+      <excludeFolder url="file://$MODULE_DIR$/ionic/android/.gradle" />
+      <excludeFolder url="file://$MODULE_DIR$/ionic/android/capacitor-cordova-android-plugins" />
+      <excludeFolder url="file://$MODULE_DIR$/backend/logs" />
+      <excludeFolder url="file://$MODULE_DIR$/backend/build" />
+      <excludeFolder url="file://$MODULE_DIR$/android/app/build" />
+      <excludeFolder url="file://$MODULE_DIR$/android/.gradle" />
+      <excludeFolder url="file://$MODULE_DIR$/android/.idea/modules" />
+      <excludeFolder url="file://$MODULE_DIR$/android/.idea/libraries" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
