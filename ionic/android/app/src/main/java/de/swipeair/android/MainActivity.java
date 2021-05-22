@@ -7,12 +7,21 @@ import android.provider.Settings;
 
 import com.getcapacitor.BridgeActivity;
 
+import de.swipeair.android.plugins.SetupPlugin;
 import de.swipeair.android.services.OverlayService;
 
 public class MainActivity extends BridgeActivity {
+    public static MainActivity INSTANCE;
+
+    public MainActivity() {
+        INSTANCE = this;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        registerPlugin(SetupPlugin.class);
 
         if (Settings.canDrawOverlays(this)) {
             launch();
