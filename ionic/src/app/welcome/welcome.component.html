@@ -1,0 +1,60 @@
+<ion-content [fullscreen]="true">
+    <ion-slides pager="true" #slides [options]="sliderOptions">
+        <ion-slide id="slide-1">
+            <h1>Welcome to SwipeAir</h1>
+            <p>
+                This tutorial will walk you through the basic concepts of our
+                app and assist you with taking all required preparation steps.
+            </p>
+            <div class="content">
+                <img src="assets/logo.png" />
+            </div>
+            <ion-button class="next-button" (click)="slideNext()">Let's go</ion-button>
+        </ion-slide>
+        <ion-slide id="slide-2">
+            <h1>Everything is possible</h1>
+            <p>
+                Just swipe up in one of our supported apps, and the photo, video or
+                other content is transferred to your computer.
+            </p>
+            <div class="content">
+                <img src="assets/devices/laptop_apps.svg" id="laptop" />
+                <img src="assets/logo.png" id="logo" />
+                <img src="../../assets/devices/smartphone_swipe_double.svg" id="phone" />
+            </div>
+            <ion-button class="next-button" (click)="slideNext()">Configure</ion-button>
+        </ion-slide>
+        <ion-slide id="slide-3">
+            <h1>Configure the trigger</h1>
+            <p>
+                Choose the gesture which fits best for your phone to trigger SwipeAir.
+            </p>
+            <div class="content">
+                <div class="split">
+                    <h3>Edge Swipe</h3>
+                    <img src="assets/devices/smartphone_swipe_edge.svg">
+                    <p>One-finger swipe up at the left edge</p>
+                </div>
+                <div class="split">
+                    <h3>Double Swipe</h3>
+                    <img src="assets/devices/smartphone_swipe_double.svg">
+                    <p>Two-finger swipe up from the bottom</p>
+                </div>
+            </div>
+            <ion-segment (ionChange)="updateTrigger($event)" [value]="triggerMode">
+                <ion-segment-button value="edge">
+                    Edge Swipe
+                </ion-segment-button>
+                <ion-segment-button value="double">
+                    Double Swipe
+                </ion-segment-button>
+            </ion-segment>
+            <ion-button class="next-button" (click)="slideNext()">Continue</ion-button>
+        </ion-slide>
+        <ion-slide>
+            <ion-button (click)="setupAccessibilityService()">
+                Accessibility Service
+            </ion-button>
+        </ion-slide>
+    </ion-slides>
+</ion-content>
