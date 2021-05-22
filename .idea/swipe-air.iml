@@ -18,6 +18,8 @@
       <excludeFolder url="file://$MODULE_DIR$/android/.gradle" />
       <excludeFolder url="file://$MODULE_DIR$/android/.idea/modules" />
       <excludeFolder url="file://$MODULE_DIR$/android/.idea/libraries" />
+      <excludeFolder url="file://$MODULE_DIR$/ionic/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/ionic/tmp" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

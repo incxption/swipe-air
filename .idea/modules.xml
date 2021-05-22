@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/backend/backend.iml" filepath="$PROJECT_DIR$/backend/backend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ionic/ionic.iml" filepath="$PROJECT_DIR$/ionic/ionic.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/swipe-air.iml" filepath="$PROJECT_DIR$/.idea/swipe-air.iml" />
     </modules>
   </component>
