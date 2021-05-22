@@ -1,8 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-        package="de.swipeair.android">
-
-    <!-- Permissions -->
+<?xml version='1.0' encoding='utf-8'?>
+<manifest package="de.swipeair.android"
+        xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -11,30 +9,27 @@
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
+            android:networkSecurityConfig="@xml/network_security_config"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
-            android:networkSecurityConfig="@xml/network_security_config"
             android:usesCleartextTraffic="true">
-
         <activity
                 android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode"
-                android:name="de.swipeair.android.MainActivity"
                 android:label="@string/title_activity_main"
-                android:theme="@style/AppTheme.NoActionBarLaunch"
-                android:launchMode="singleTask">
-
+                android:launchMode="singleTask"
+                android:name="de.swipeair.android.MainActivity"
+                android:theme="@style/AppTheme.NoActionBarLaunch">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
 
         <service
+                android:label="@string/app_name"
                 android:name="de.swipeair.android.services.ExtractorService"
-                android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
-                android:label="@string/app_name">
+                android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
             <intent-filter>
                 <action android:name="android.accessibilityservice.AccessibilityService" />
             </intent-filter>
@@ -42,19 +37,18 @@
                     android:name="android.accessibilityservice"
                     android:resource="@xml/accessibility_service_config" />
         </service>
-
         <service
-                android:name="de.swipeair.android.services.OverlayService"
-                android:exported="false" />
+                android:exported="false"
+                android:name="de.swipeair.android.services.OverlayService" />
 
         <provider
-                android:name="androidx.core.content.FileProvider"
                 android:authorities="${applicationId}.fileprovider"
                 android:exported="false"
-                android:grantUriPermissions="true">
+                android:grantUriPermissions="true"
+                android:name="androidx.core.content.FileProvider">
             <meta-data
                     android:name="android.support.FILE_PROVIDER_PATHS"
-                    android:resource="@xml/file_paths"></meta-data>
+                    android:resource="@xml/file_paths" />
         </provider>
     </application>
 </manifest>
