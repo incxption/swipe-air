@@ -6,6 +6,7 @@ import logger from "./utils/logger"
 import { addEventListeners } from "./events/events"
 
 export const io = new Server()
+const port = 5785
 
 io.on("connection", socket => {
     logger.info(
@@ -17,5 +18,5 @@ io.on("connection", socket => {
     addEventListeners(socket)
 })
 
-io.listen(5785)
-logger.info("Listening on port 5785")
+io.listen(port)
+logger.info("Listening on port %d", port)
