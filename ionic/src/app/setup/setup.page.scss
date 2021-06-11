@@ -47,11 +47,11 @@ p {
 }
 
 #slide-2 {
-    #laptop {
+    .laptop {
         width: 12rem;
     }
 
-    #logo {
+    .logo {
         position: relative;
         z-index: -10;
         width: 3rem;
@@ -59,7 +59,7 @@ p {
         animation: transfer 1.5s ease-in-out infinite;
     }
 
-    #phone {
+    .phone {
         width: 6rem;
     }
 }
@@ -104,6 +104,47 @@ p {
         padding: 0.2rem 0;
         --indicator-color: var(--ion-color-primary-tint);
         --color-checked: var(--ion-color-primary-contrast);
+    }
+}
+
+#slide-4 {
+    ion-icon {
+        margin-right: 0.5rem;
+    }
+
+    .split {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem 1.5rem;
+    }
+
+    .split:nth-of-type(1) {
+        border-bottom: 1px solid var(--ion-color-light-shade);
+    }
+
+    small {
+        margin-top: 0.8rem;
+        font-size: 0.9rem;
+    }
+}
+
+#slide-5 {
+    .content {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .laptop {
+        margin-bottom: 3rem;
+    }
+
+    ion-chip.website {
+        font-size: 1.3rem;
+        padding: 1rem 0.7rem;
+        margin-top: 1.3rem;
+        margin-bottom: 0.5rem;
     }
 }
 

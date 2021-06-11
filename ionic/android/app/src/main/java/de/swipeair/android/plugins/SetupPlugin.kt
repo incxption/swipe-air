@@ -13,20 +13,32 @@ class SetupPlugin : Plugin() {
     private val mainActivity: MainActivity
         get() = MainActivity.INSTANCE
 
+    companion object {
+        @JvmStatic
+        var overlayCall: PluginCall? = null
+            private set
+        
+        @JvmStatic
+        var serviceCall: PluginCall? = null
+            private set
+    }
+
     @PluginMethod
     fun setupOverlay(call: PluginCall) {
+        overlayCall?.resolve()
+        overlayCall = call
+
         val intent = Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
             Uri.parse("package:${mainActivity.packageName}"))
-        mainActivity.startActivity(intent)
-
-        call.resolve()
+        mainActivity.startActivityForResult(intent, 8801)
     }
 
     @PluginMethod
     fun setupAccessibilityService(call: PluginCall) {
-        val intent = Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS)
-        mainActivity.startActivity(intent)
+        serviceCall?.resolve()
+        serviceCall = call
 
-        call.resolve()
+        val intent = Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS)
+        mainActivity.startActivityForResult(intent, 8802)
     }
 }

@@ -1,0 +1,112 @@
+<ion-content [fullscreen]="true">
+    <ion-slides pager="true" #slides [options]="sliderOptions">
+        <ion-slide id="slide-1">
+            <h1>Welcome to SwipeAir</h1>
+            <p>
+                This tutorial will walk you through the basic concepts of our app and assist you
+                with taking all required preparation steps.
+            </p>
+            <div class="content">
+                <img src="assets/logo.png" />
+            </div>
+            <ion-button class="next-button" (click)="slideNext()">Let's go</ion-button>
+        </ion-slide>
+
+        <ion-slide id="slide-2">
+            <h1>Everything is possible</h1>
+            <p>
+                Just swipe up in one of our supported apps, and the photo, video or other content is
+                transferred to your computer.
+            </p>
+            <div class="content">
+                <img src="assets/devices/laptop_apps.svg" class="laptop" />
+                <img src="assets/logo.png" class="logo" />
+                <img src="../../assets/devices/smartphone_swipe_double.svg" class="phone" />
+            </div>
+            <ion-button class="next-button" (click)="slideNext()">Configure</ion-button>
+        </ion-slide>
+
+        <ion-slide id="slide-3">
+            <h1>Configure the trigger</h1>
+            <p>Choose the gesture which fits best for your phone to trigger SwipeAir.</p>
+            <div class="content">
+                <div class="split">
+                    <h3>Edge Swipe</h3>
+                    <img src="assets/devices/smartphone_swipe_edge.svg" />
+                    <p>One-finger swipe up at the left edge</p>
+                </div>
+                <div class="split">
+                    <h3>Double Swipe</h3>
+                    <img src="assets/devices/smartphone_swipe_double.svg" />
+                    <p>Two-finger swipe up from the bottom</p>
+                </div>
+            </div>
+            <ion-segment (ionChange)="updateTrigger($event)" [value]="triggerMode">
+                <ion-segment-button value="edge"> Edge Swipe </ion-segment-button>
+                <ion-segment-button value="double"> Double Swipe </ion-segment-button>
+            </ion-segment>
+            <ion-button class="next-button" (click)="slideNext()">Save settings</ion-button>
+        </ion-slide>
+
+        <ion-slide id="slide-4">
+            <h1>Grant permissions</h1>
+            <p>
+                First of all, we need some permissions from you. The access you give to SwipeAir is
+                only used for the app to work correctly. We never collect your personal data.
+            </p>
+
+            <div class="content">
+                <div class="split">
+                    <ion-button
+                        (click)="setupOverlay()"
+                        [color]="permissionButtonColor(permissionOverlay)"
+                    >
+                        <ion-icon [name]="permissionIconName(permissionOverlay)"></ion-icon>
+                        Overlay other apps
+                    </ion-button>
+                    <small>
+                        We need this permission to create the swipe area on your screen to trigger
+                        SwipeAir.
+                    </small>
+                </div>
+
+                <div class="split">
+                    <ion-button
+                        (click)="setupAccessibilityService()"
+                        [color]="permissionButtonColor(permissionAccessibility)"
+                    >
+                        <ion-icon [name]="permissionIconName(permissionAccessibility)"></ion-icon>
+                        Accessibility service
+                    </ion-button>
+                    <small>
+                        We need this permission to extract data from the app you are sharing, e.g.
+                        the video you watch on YouTube. This is only done when SwipeAir is
+                        triggered.
+                    </small>
+                </div>
+            </div>
+
+            <ion-button
+                class="next-button"
+                (click)="slideNext()"
+                [disabled]="!permissionOverlay || !permissionAccessibility"
+            >
+                Continue
+            </ion-button>
+        </ion-slide>
+
+        <ion-slide id="slide-5">
+            <h1>Connect to computer</h1>
+            <p>We promise, this is the last time you have to copy a link!</p>
+
+            <div class="content">
+                <img src="assets/devices/laptop_apps.svg" class="laptop" />
+                <p>Open your web browser of choice on your computer and visit:</p>
+                <ion-chip color="primary" class="website">swipe-air.de</ion-chip>
+                <p>Now click the Download-Button and follow the instructions on the website.</p>
+            </div>
+
+            <ion-button class="next-button" (click)="scanQRCode()"> Scan QR code </ion-button>
+        </ion-slide>
+    </ion-slides>
+</ion-content>

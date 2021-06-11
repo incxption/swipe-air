@@ -25,7 +25,7 @@ class OverlayService : Service(), View.OnTouchListener {
 
         val view = View(this)
         view.setOnTouchListener(this)
-        view.setBackgroundColor(Color.GREEN)
+//        view.setBackgroundColor(Color.GREEN)
 
         val topLeftParams = WindowManager.LayoutParams(
             WindowManager.LayoutParams.MATCH_PARENT,

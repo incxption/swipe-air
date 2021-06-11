@@ -1,23 +1,28 @@
-import { NgModule } from "@angular/core";
-import { PreloadAllModules, RouterModule, Routes } from "@angular/router";
-import { WelcomeComponent } from "./welcome/welcome.component";
+import { NgModule } from "@angular/core"
+import { PreloadAllModules, RouterModule, Routes } from "@angular/router"
+import { SetupPage } from "./setup/setup.page"
+import { SetupGuard } from "./setup/setup.guard"
+import { HomeComponent } from "./home/home.component"
 
 const routes: Routes = [
     {
+        path: "setup",
+        component: SetupPage,
+        canActivate: [SetupGuard]
+    },
+    {
         path: "home",
-        component: WelcomeComponent,
+        component: HomeComponent
     },
     {
         path: "",
-        redirectTo: "home",
         pathMatch: "full",
-    },
-];
+        redirectTo: "setup"
+    }
+]
 
 @NgModule({
-    imports: [
-        RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
-    ],
-    exports: [RouterModule],
+    imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],
+    exports: [RouterModule]
 })
 export class AppRoutingModule {}

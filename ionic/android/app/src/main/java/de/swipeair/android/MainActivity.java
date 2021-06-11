@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.widget.Toast;
 
 import com.getcapacitor.BridgeActivity;
 
@@ -22,26 +23,25 @@ public class MainActivity extends BridgeActivity {
         super.onCreate(savedInstanceState);
 
         registerPlugin(SetupPlugin.class);
-
-        if (Settings.canDrawOverlays(this)) {
-            launch();
-        } else {
-            Intent request = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
-                    Uri.parse("package:" + getPackageName()));
-            startActivityForResult(request, 1234);
-        }
+        launch();
     }
 
-    private void launch() {
-        Intent service = new Intent(this, OverlayService.class);
-        startService(service);
+    public void launch() {
+        if (Settings.canDrawOverlays(this)) {
+            Intent service = new Intent(this, OverlayService.class);
+            startService(service);
+        }
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 1234) {
+
+        if (requestCode == 8801) {
+            SetupPlugin.getOverlayCall().resolve();
             launch();
+        } else if (requestCode == 8802) {
+            SetupPlugin.getServiceCall().resolve();
         }
     }
 }
