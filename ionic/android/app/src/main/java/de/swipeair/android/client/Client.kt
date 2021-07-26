@@ -11,7 +11,8 @@ object Client {
 
     fun initialize() {
         try {
-            socket = IO.socket("http://10.0.2.2:5785").connect()
+            /*socket = IO.socket("http://10.0.2.2:5785").connect()*/
+            socket = IO.socket("http://192.168.178.66:5785").connect()
             Log.i(TAG, "initialize: Connected to websocket")
         } catch (e: Exception) {
             Log.e(TAG, "initialize: Failed to connect to websocket", e)
