@@ -70,7 +70,9 @@
                 "serve": {
                     "builder": "@angular-devkit/build-angular:dev-server",
                     "options": {
-                        "browserTarget": "app:build"
+                        "browserTarget": "app:build",
+                        "port": 4200,
+                        "host": "192.168.178.66"
                     },
                     "configurations": {
                         "production": {
