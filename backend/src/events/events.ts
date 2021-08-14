@@ -7,7 +7,7 @@ export function addEventListeners(socket: Socket) {
         "share youtube video",
         async (title: string, channel: string, timestamp: string) => {
             const snapshot = { title, channel, timestamp }
-            logger.info("share youtube video: %s", JSON.stringify(snapshot))
+            logger.info("Shared youtube video: %s", JSON.stringify(snapshot))
 
             await search(snapshot)
         }

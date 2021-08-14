@@ -36,7 +36,7 @@ class ExtractorService : AccessibilityService() {
         Log.i(TAG, "Received gesture fired")
         extractVideoData { video ->
             if (video != null) {
-                Toast.makeText(this, video.toString(), Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Successfully send video data", Toast.LENGTH_LONG).show()
                 Client.emit(video)
             }
         }
@@ -48,7 +48,13 @@ class ExtractorService : AccessibilityService() {
 
         findChannel { channel ->
             if (title != null && timestamp != null && channel != null) {
-                callback(YouTubeVideoPacket(title.toString(), channel.toString(), timestamp.toString()))
+                callback(
+                    YouTubeVideoPacket(
+                        title.toString(),
+                        channel.toString(),
+                        timestamp.toString()
+                    )
+                )
             } else {
                 Toast.makeText(this, "Couldn't extract video data!", Toast.LENGTH_LONG).show()
                 Log.e(TAG, "Failed to extract video data!")
@@ -125,5 +131,6 @@ class ExtractorService : AccessibilityService() {
     }
 
     private fun id(id: String) = rootInActiveWindow.findAccessibilityNodeInfosByViewId(
-        "com.google.android.youtube:id/$id")
+        "com.google.android.youtube:id/$id"
+    )
 }
